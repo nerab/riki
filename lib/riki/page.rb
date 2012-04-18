@@ -13,8 +13,8 @@ module Riki
 
         results = {}
 
-# TODO Transform the requested title to its normalized form. Maybe double-cache or alias?
-# <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
+        # TODO Transform the requested title to its normalized form. Maybe double-cache or alias?
+        # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
 
         # find cached pages
         titles.each{|title|
@@ -24,11 +24,10 @@ module Riki
 
         # Check _in one coarse-grained API call which cached pages are still current
         if results.any?
-          api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.join('|')}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
+          api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|')}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
             last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
             title = page['title']
             titles.delete(title) if last_modified <= results[title].last_modified
-STDERR.puts "Cached copy of #{title} is still current" if last_modified <= results[title].last_modified
           }
         end
 
