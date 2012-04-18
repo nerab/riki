@@ -19,7 +19,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('libxml-ruby', '~> 2.3')
   gem.add_runtime_dependency('activesupport', '~> 3.2')
   gem.add_runtime_dependency('rack', '~> 1.4')
-  gem.add_runtime_dependency('nokogiri', '~> 1.5')
   gem.add_development_dependency('vcr', '~> 2.0')
   gem.add_development_dependency('webmock', '~> 1.8')
 end
