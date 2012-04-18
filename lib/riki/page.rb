@@ -1,5 +1,4 @@
 require 'cgi'
-require 'nokogiri'
 require 'date'
 
 module Riki
