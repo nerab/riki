@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.require
+require 'active_support'
+
+include Riki
+
+prefs = Preferences::User.load(File.basename($0))
+Riki::Base.url = prefs[:url] if prefs[:url] # prevent overriding with nil
+
+# These may be nil. If present, all operations will occur under this account
+Riki::Base.username = prefs[:username]
+Riki::Base.password = prefs[:password]
+Riki::Base.domain = prefs[:domain]
+Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0))))
+
+if ARGV.empty?
+  STDERR.puts "Error: Missing page title. Usage: #{$0} TITLE [TITLE]*"
+  exit 1
+end
+
+begin
+  results = Page.find_by_title(ARGV)
+rescue PageNotFound
+  STDERR.puts $!
+  exit 2
+rescue PageInvalid
+  STDERR.puts $!
+  exit 3
+end
+
+if results.empty?
+  STDERR.puts "No pages found for '#{ARGV.join(' ')}'"
+  exit 4
+else
+  results.each{|page|
+    puts page.to_s
+    STDERR.puts "Page #{page.title} last modified #{page.last_modified}"
+  }
+end

@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'bundler'
+Bundler.require
+
+NAMESPACE = 'riki'
+
+options = Preferences::User.load!(NAMESPACE)
+
+verbose = false
+dirty = false
+
+def set_or_delete(options, key, value)
+  if value
+    options[key] = value
+  else
+    options.delete(key)
+  end
+end
+
+option_parser = OptionParser.new do |opts|
+  opts.on('-v', '--verbose') do 
+    verbose = true
+  end
+  
+  opts.on('-h', '--help') do 
+    STDERR.puts "#{File.basename($0)} writes preferences for #{NAMESPACE}, the Ruby library for MediaWiki"
+    exit(1)
+  end
+  
+  opts.on('-m [URL]', '--url [URL]') do |url| 
+    set_or_delete(options, :url, url)
+    dirty = true
+  end
+  
+  opts.on('-u [USER]', '--user [USER]') do |user| 
+    set_or_delete(options, :username, user)
+    dirty = true
+  end
+  
+  opts.on('-p [PASSWORD]', '--password [PASSWORD]') do |password| 
+    set_or_delete(options, :password, password)
+    dirty = true
+  end
+  
+  opts.on('-d [DOMAIN]', '--domain [DOMAIN]') do |domain| 
+    set_or_delete(options, :domain, domain)
+    dirty = true
+  end
+end
+
+option_parser.parse!
+
+STDERR.puts "Loaded user preferences from #{Preferences::User.user_preferences_file(NAMESPACE)}" if verbose
+
+if !dirty
+  puts options.inspect # dump if called without args
+else
+  STDERR.puts "Saving modified user preferences to #{Preferences::User.user_preferences_file(NAMESPACE)}" if verbose
+  Preferences::User.save!(options, NAMESPACE)
+  puts Preferences::User.load!(NAMESPACE).inspect if verbose
+end
