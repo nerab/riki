@@ -2,6 +2,9 @@
 
 `riki` is a MediaWiki client written in Ruby.
 
+[![Build Status](https://secure.travis-ci.org/nerab/riki.png?branch=master)](http://travis-ci.org/nerab/riki)
+[![Dependency Status](https://gemnasium.com/nerab/riki.png)](https://gemnasium.com/nerab/riki)
+
 ## Installation
 
 Add this line to your application's Gemfile:
