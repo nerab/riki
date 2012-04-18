@@ -91,7 +91,7 @@ module Riki
 
             @cookies.merge!(response.cookies)
             case login_result
-              when "Success"   then Riki::Base.cache.write(cache_key(:cookies), @cookies, :expires_in => 12.hours)
+              when "Success"   then Riki::Base.cache.write(cache_key(:cookies), @cookies)
               when "NeedToken" then api_request(form_data.merge('lgtoken' => doc.find('/m:api/m:login').first['token']))
               else raise Unauthorized.new("Login failed: " + login_result)
             end

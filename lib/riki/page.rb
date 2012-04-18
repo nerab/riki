@@ -44,7 +44,7 @@ module Riki
           p.content = rev.content
           p.last_modified = DateTime.strptime(rev['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
 
-          Riki::Base.cache.write(cache_key("page_#{p.title}"), p, :expires_in => 12.hours)
+          Riki::Base.cache.write(cache_key("page_#{p.title}"), p)
 
           results[p.title] = p
         }
