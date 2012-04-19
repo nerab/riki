@@ -2,21 +2,72 @@
 
 require 'bundler'
 Bundler.require
-require 'active_support'
 
+require 'active_support'
+require 'optparse'
+
+NAMESPACE = Riki.to_s.downcase
 include Riki
 
+use_cache = true
 prefs = Preferences::User.load(File.basename($0))
+
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: #{opts.program_name} [options] TITLE [TITLE]*"
+  
+  opts.on('-v', '--verbose') do 
+    verbose = true
+  end
+  
+  opts.on('-h', '--help') do 
+    STDERR.puts "riki is a Ruby MediaWiki client"
+    STDERR.puts opts.banner
+    exit # asking for help is not an error
+  end
+  
+  opts.on('--no-cache') do
+    use_cache = false
+  end
+  
+  opts.on('-m URL', '--url URL') do |url| 
+    # TODO Accept symbols too - wpen, wpde, etc.
+    # Query http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=interwikimap
+    # and use the prefix attribute for lookup
+    # Make sure it's cached forever and only re-read if the symbol isn't found (also covers first use)
+    prefs[:url] = url
+  end
+  
+  opts.on('-u USER', '--user USER') do |user| 
+    prefs[:username] = user
+  end
+  
+  opts.on('-p PASSWORD', '--password PASSWORD') do |password| 
+    prefs[:password] = password
+  end
+  
+  opts.on('-d DOMAIN', '--domain DOMAIN') do |domain| 
+    prefs[:domain] = domain
+  end
+end
+
+begin
+  option_parser.parse!
+rescue
+  STDERR.puts "Error: #{$!.message}"
+  STDERR.puts option_parser.banner
+  exit 5
+end
+
 Riki::Base.url = prefs[:url] if prefs[:url] # prevent overriding with nil
 
 # These may be nil. If present, all operations will occur under this account
 Riki::Base.username = prefs[:username]
 Riki::Base.password = prefs[:password]
 Riki::Base.domain = prefs[:domain]
-Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0))))
+Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0)))) if use_cache
 
 if ARGV.empty?
-  STDERR.puts "Error: Missing page title. Usage: #{$0} TITLE [TITLE]*"
+  STDERR.puts "Error: Missing page title."
   exit 1
 end
 

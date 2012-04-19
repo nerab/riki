@@ -4,7 +4,7 @@ require 'optparse'
 require 'bundler'
 Bundler.require
 
-NAMESPACE = 'riki'
+NAMESPACE = Riki.to_s.downcase
 
 options = Preferences::User.load!(NAMESPACE)
 
@@ -25,7 +25,7 @@ option_parser = OptionParser.new do |opts|
   end
   
   opts.on('-h', '--help') do 
-    STDERR.puts "#{File.basename($0)} writes preferences for #{NAMESPACE}, the Ruby library for MediaWiki"
+    STDERR.puts "#{File.basename($0)} reads and writes preferences for #{NAMESPACE}, the Ruby library for MediaWiki"
     exit(1)
   end
   
