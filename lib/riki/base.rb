@@ -83,8 +83,6 @@ module Riki
 
           doc = parse_response(response.dup)
 
-          # TODO Handle MediaWiki redirects
-
           if(form_data['action'] == 'login')
             login_result = doc.find_first('m:login')['result']
             Riki::Base.cookieprefix = doc.find_first('m:login')['cookieprefix']
@@ -105,9 +103,8 @@ module Riki
       def parse_response(res)
         res = res.force_encoding("UTF-8") if res.respond_to?(:force_encoding)
         doc = XML::Parser.string(res).parse.root
-        doc.namespaces.default_prefix = 'm'
-
         raise "Response does not contain Mediawiki API XML: #{res}" unless ["api", "mediawiki"].include? doc.name
+        doc.namespaces.default_prefix = 'm'
 
         errors = doc.find('/api/error')
         if errors.any?

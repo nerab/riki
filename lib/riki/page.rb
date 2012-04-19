@@ -9,8 +9,10 @@ module Riki
     class << self
       def find_by_title(titles)
         titles = [titles] unless titles.kind_of?(Array) # always treat titles as array
+        return [] if titles.empty?
 
         results = {}
+        redirects = []
 
         # find cached pages
         titles.each{|title|
@@ -20,12 +22,29 @@ module Riki
 
         # Check _in one coarse-grained API call which cached pages are still current
         if results.any?
-          api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|')}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
+          api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|'), 'redirects' => nil}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
             last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
             title = page['title']
-            title = page.find_first('../../m:normalized/m:n')['from'] if !results[title]
 
-            titles.delete(title) if last_modified <= results[title].last_modified
+            if !results[title]
+              normalized = page.find_first('../../m:normalized/m:n')
+              if normalized
+                titles.delete(title)
+                title = normalized['from']
+              end
+            end
+
+            # TODO Redirect isn't properly working yet
+            if !results[title]
+              redirect = page.find_first('../../m:redirect/m:r')
+              if redirect
+                titles.delete(title)
+                title = redirect['from']
+              end
+            end
+
+            # TODO Make sure we delete redirects and normalizations that are stale
+            titles.delete(title) if results[title] && last_modified <= results[title].last_modified
           }
         end
 
@@ -48,6 +67,11 @@ module Riki
           # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
           normalized = page.find_first('../../m:normalized/m:n')
           Riki::Base.cache.write(cache_key("page_#{normalized['from']}"), p) if normalized
+
+          # Cache the page under the title of the redirect source
+          # <redirects><r from="AJAX Proxy" to="HTTP Proxy for AJAX Applications" tofragment=""/>
+          redirected = page.find_first('../../m:redirect/m:r')
+          Riki::Base.cache.write(cache_key("page_#{redirected['from']}"), p) if redirected
 
           results[p.title] = p
         }
