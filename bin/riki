@@ -26,27 +26,42 @@ def exit_code(clazz)
   }[clazz] || -1
 end
 
+def usage
+  "Run '#{File.basename(__FILE__)} --help' for further help."
+end
+
+help = <<HELP
+Riki is a MediaWiki client written in Ruby.
+
+Author: Nicolas E. Rabenau nerab@gmx.at
+Homepage: http://rubydoc.info/gems/riki/file/README.md
+
+Synopsis:
+
+    riki [options] TITLE [TITLE]*
+
+Example Usage:
+
+    riki Austria   # Prints the contents of the Austria page of the English Wikipedia
+    riki Ruby Perl # Prints the contents of the Ruby and Perl page
+
+Options:
+HELP
+
 use_cache = true
 prefs = Preferences::User.load(File.basename($0))
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{opts.program_name} [options] TITLE [TITLE]*"
+  opts.banner = help
 
-  opts.on('-v', '--verbose') do
-    verbose = true
-  end
-
-  opts.on('-h', '--help') do
-    STDERR.puts "riki is a Ruby MediaWiki client"
-    STDERR.puts opts.banner
-    exit # asking for help is not an error
-  end
-
-  opts.on('--no-cache') do
+  opts.on('--no-cache', 'Do not use a local cache for wiki pages') do
+    Riki.logger.info "Not using any cache"
     use_cache = false
   end
 
-  opts.on('-m URL', '--url URL') do |url|
+  opts.on('-m URL', '--url URL', 'Use URL for accessing the wiki API') do |url|
+    Riki.logger.info "Setting the wiki API URL to #{url}"
+    
     # TODO Accept symbols too - wpen, wpde, etc.
     # Query http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=interwikimap
     # and use the prefix attribute for lookup
@@ -54,16 +69,32 @@ option_parser = OptionParser.new do |opts|
     prefs[:url] = url
   end
 
-  opts.on('-u USER', '--user USER') do |user|
+  opts.on('-u USER', '--user USER', 'Use USER to authenticate at the wiki') do |user|
+    Riki.logger.info "Setting user to #{user}"
     prefs[:username] = user
   end
 
-  opts.on('-p PASSWORD', '--password PASSWORD') do |password|
+  opts.on('-p PASSWORD', '--password PASSWORD', 'Use PASSWORD to authenticate at the wiki') do |password|
+    Riki.logger.info "Setting password to #{'*' * password.length}"
     prefs[:password] = password
   end
 
-  opts.on('-d [DOMAIN]', '--domain [DOMAIN]') do |domain|
+  opts.on('-d [DOMAIN]', '--domain [DOMAIN]', 'Use DOMAIN as wiki authentication domain') do |domain|
+    Riki.logger.info "Setting domain to #{domain}"
     prefs[:domain] = domain
+  end
+
+  opts.on('--version', 'Display current version') do
+    puts "#{File.basename(__FILE__)} " + Dropcaster::VERSION
+    exit 0
+  end
+
+  opts.on('-v', '--verbose', 'Verbose mode - displays additional diagnostic information') do
+    Riki.logger.level = Logger::INFO
+  end
+
+  opts.on("--trace", "Trace (debug) mode - displays debug information and stack traces") do
+    Dropcaster.logger.level = Logger::DEBUG
   end
 end
 
@@ -71,6 +102,7 @@ begin
   option_parser.parse!
 rescue
   STDERR.puts "Error: #{$!.message}"
+  STDERR.puts
   STDERR.puts option_parser.banner
   exit 5
 end
@@ -81,7 +113,10 @@ Riki::Base.url = prefs[:url] if prefs[:url] # prevent overriding with nil
 Riki::Base.username = prefs[:username]
 Riki::Base.password = prefs[:password]
 Riki::Base.domain = prefs[:domain]
-Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0)))) if use_cache
+
+if use_cache
+  Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0)))) 
+end
 
 if ARGV.empty?
   STDERR.puts "Error: Missing page title."
@@ -96,11 +131,11 @@ rescue Error::Base
 end
 
 if results.empty?
-  STDERR.puts "No pages found for '#{ARGV.join(' ')}'"
+  Riki.logger.info "No pages found for '#{ARGV.join(' ')}'"
   exit 4
 else
   results.each{|page|
     puts page.to_s
-    STDERR.puts "Page #{page.title} last modified #{page.last_modified}"
+    #Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
   }
 end

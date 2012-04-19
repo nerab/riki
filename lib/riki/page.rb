@@ -17,41 +17,56 @@ module Riki
         # find cached pages
         titles.each{|title|
           cached = Riki::Base.cache.read(cache_key("page_#{title}"))
-          results[title] = cached if cached
+          if cached
+            results[title] = cached
+            Riki.logger.info "Found cached version of page '#{title}'"
+          end
         }
-
+        
+        # TODO Handle Redirect and Normalized objects
+        
         # Check _in one coarse-grained API call which cached pages are still current
         if results.any?
           api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|'), 'redirects' => nil}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
             last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
             title = page['title']
 
-            if !results[title]
-              normalized = page.find_first('../../m:normalized/m:n')
-              if normalized
+            normalized = page.find_first('../../m:normalized/m:n')
+            if normalized
+              Riki.logger.info "Requested page '#{title}' is probably cached under its normalized title '#{normalized['to']}'"
+              
+              # check cache again
+              cached = Riki::Base.cache.read(cache_key("page_#{normalized['to']}"))
+              if cached
+                results[normalized['to']] = cached
                 titles.delete(title)
-                title = normalized['from']
+                Riki.logger.info "Found cached version of normalized page '#{normalized['to']}'"
               end
             end
-
-            # TODO Redirect isn't properly working yet
-            if !results[title]
-              redirect = page.find_first('../../m:redirect/m:r')
-              if redirect
-                titles.delete(title)
-                title = redirect['from']
-              end
-            end
-
+            
+            # TODO redirects
+            
+            
             # TODO Make sure we delete redirects and normalizations that are stale
-            titles.delete(title) if results[title] && last_modified <= results[title].last_modified
+            if results[title] && last_modified < results[title].last_modified
+              Riki.logger.info "Cached version of page '#{title}' is from #{results[title].last_modified}, but an updated version is available that dates #{last_modified}" 
+              titles.delete(title)
+            end
           }
         end
 
+        Riki.logger.info "Currency check leaves these pages to retrieve in full: #{titles.join(', ')}"
+        
         return results.values if titles.empty? # no titles asked for or all results cached and current
 
-        api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'content|timestamp', 'titles' => titles.join('|')}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
+        api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'content|timestamp', 'titles' => titles.join('|'), 'redirects' => nil}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
+          if page['missing']
+            Riki.logger.info "Page '#{page['title']}' was not found" 
+            next
+          end
+        
           validate!(page)
+          
           p = Page.new(page['title'])
 
           p.id = page['pageid'].to_i
@@ -62,17 +77,24 @@ module Riki
           p.last_modified = DateTime.strptime(rev['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
 
           Riki::Base.cache.write(cache_key("page_#{p.title}"), p)
+          Riki.logger.info "Page '#{p.title}' was written to the cache" 
 
-          # Also cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
+          # Cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
           # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
           normalized = page.find_first('../../m:normalized/m:n')
-          Riki::Base.cache.write(cache_key("page_#{normalized['from']}"), p) if normalized
-
+          if normalized
+            Riki.logger.info "Caching non-normalized title '#{normalized['from']}' for page '#{p.title}'"
+            Riki::Base.cache.write(cache_key("page_#{normalized['from']}"), Normalized.new(normalized['from'], normalized['to'])) 
+          end
+          
           # Cache the page under the title of the redirect source
-          # <redirects><r from="AJAX Proxy" to="HTTP Proxy for AJAX Applications" tofragment=""/>
-          redirected = page.find_first('../../m:redirect/m:r')
-          Riki::Base.cache.write(cache_key("page_#{redirected['from']}"), p) if redirected
-
+          # <redirects><r from="&quot;Mimia&quot;" to="Mimipiscis" tofragment=""/>
+          redirected = page.find_first('../../m:redirects/m:r')
+          if redirected
+            Riki.logger.info "Caching redirect source '#{redirected['from']}' for page '#{p.title}'"
+            Riki::Base.cache.write(cache_key("page_#{redirected['from']}"), Redirect.new(redirected['from'], redirected['to'])) 
+          end
+          
           results[p.title] = p
         }
 
@@ -82,7 +104,6 @@ module Riki
       private
 
       def validate!(xml)
-        raise Error::PageNotFound.new(xml['title']) if xml['missing']
         raise Error::PageInvalid.new(xml['title'])  if xml['invalid']
       end
 
