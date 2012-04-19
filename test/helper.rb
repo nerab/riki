@@ -18,3 +18,9 @@ module RikiTest
     end
   end
 end
+
+class Test::Unit::TestCase
+  def assert_contains(expected, actual)
+    assert(actual =~ /#{expected}/, "Did not contain #{expected}: #{actual}")
+  end
+end

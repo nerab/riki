@@ -79,7 +79,7 @@ module Riki
           end
 
           # Check response for errors and return XML
-          raise "Bad response: #{response}" unless response.code >= 200 and response.code < 300
+          raise Riki::Error::HttpError.new(response.code) unless response.code >= 200 and response.code < 300
 
           doc = parse_response(response.dup)
 
@@ -93,7 +93,7 @@ module Riki
             case login_result
               when "Success"   then Riki::Base.cache.write(cache_key(:cookies), @cookies)
               when "NeedToken" then api_request(form_data.merge('lgtoken' => doc.find('/m:api/m:login').first['token']))
-              else raise Unauthorized.new("Login failed: " + login_result)
+              else raise Riki::Error::Base.lookup(login_result)
             end
           end
           continue = (continue_xpath and doc.find('m:query-continue').empty?) ? doc.find_first(continue_xpath).value : nil
@@ -113,7 +113,7 @@ module Riki
         if errors.any?
           code = errors.first["code"]
           info = errors.first["info"]
-          raise RikiError.lookup(code).new(info)
+          raise Riki::Error::Base.lookup(code).new(info)
         end
 
         if warnings = doc.find('warnings') && warnings

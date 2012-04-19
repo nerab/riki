@@ -9,43 +9,60 @@ require 'optparse'
 NAMESPACE = Riki.to_s.downcase
 include Riki
 
+#
+# Maps error classes to exit codes
+#
+def exit_code(clazz)
+  {
+    Error::PageNotFound => 11,
+    Error::PageInvalid => 12,
+    Error::Login::Illegal => 13,
+    Error::Login::NotExists => 14,
+    Error::Login::EmptyPass => 15,
+    Error::Login::WrongPass => 16,
+    Error::Login::WrongPluginPass => 17,
+    Error::Login::Throttled => 18,
+    Error::Login::Blocked => 19,
+  }[clazz] || -1
+end
+
 use_cache = true
 prefs = Preferences::User.load(File.basename($0))
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{opts.program_name} [options] TITLE [TITLE]*"
-  
-  opts.on('-v', '--verbose') do 
+
+  opts.on('-v', '--verbose') do
     verbose = true
   end
-  
-  opts.on('-h', '--help') do 
+
+  opts.on('-h', '--help') do
     STDERR.puts "riki is a Ruby MediaWiki client"
     STDERR.puts opts.banner
     exit # asking for help is not an error
   end
-  
+
   opts.on('--no-cache') do
     use_cache = false
   end
-  
-  opts.on('-m URL', '--url URL') do |url| 
+
+  opts.on('-m URL', '--url URL') do |url|
     # TODO Accept symbols too - wpen, wpde, etc.
     # Query http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=interwikimap
     # and use the prefix attribute for lookup
     # Make sure it's cached forever and only re-read if the symbol isn't found (also covers first use)
     prefs[:url] = url
   end
-  
-  opts.on('-u USER', '--user USER') do |user| 
+
+  opts.on('-u USER', '--user USER') do |user|
     prefs[:username] = user
   end
-  
-  opts.on('-p PASSWORD', '--password PASSWORD') do |password| 
+
+  opts.on('-p PASSWORD', '--password PASSWORD') do |password|
     prefs[:password] = password
   end
-  
-  opts.on('-d DOMAIN', '--domain DOMAIN') do |domain| 
+
+  opts.on('-d [DOMAIN]', '--domain [DOMAIN]') do |domain|
     prefs[:domain] = domain
   end
 end
@@ -73,12 +90,9 @@ end
 
 begin
   results = Page.find_by_title(ARGV)
-rescue PageNotFound
+rescue Error::Base
   STDERR.puts $!
-  exit 2
-rescue PageInvalid
-  STDERR.puts $!
-  exit 3
+  exit exit_code($!.class)
 end
 
 if results.empty?

@@ -12,9 +12,6 @@ module Riki
 
         results = {}
 
-        # TODO Transform the requested title to its normalized form. Maybe double-cache or alias?
-        # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
-
         # find cached pages
         titles.each{|title|
           cached = Riki::Base.cache.read(cache_key("page_#{title}"))
@@ -26,6 +23,8 @@ module Riki
           api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|')}).first.find('/m:api/m:query/m:pages/m:page').each{|page|
             last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
             title = page['title']
+            title = page.find_first('../../m:normalized/m:n')['from'] if !results[title]
+
             titles.delete(title) if last_modified <= results[title].last_modified
           }
         end
@@ -45,6 +44,11 @@ module Riki
 
           Riki::Base.cache.write(cache_key("page_#{p.title}"), p)
 
+          # Also cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
+          # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
+          normalized = page.find_first('../../m:normalized/m:n')
+          Riki::Base.cache.write(cache_key("page_#{normalized['from']}"), p) if normalized
+
           results[p.title] = p
         }
 
@@ -54,8 +58,8 @@ module Riki
       private
 
       def validate!(xml)
-        raise PageNotFound.new(xml['title']) if xml['missing']
-        raise PageInvalid.new(xml['title'])  if xml['invalid']
+        raise Error::PageNotFound.new(xml['title']) if xml['missing']
+        raise Error::PageInvalid.new(xml['title'])  if xml['invalid']
       end
 
     end

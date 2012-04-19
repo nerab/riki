@@ -1,0 +1,117 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&prop=revisions&rvprop=content%7Ctimestamp&titles=ISO_639-2&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "116"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Thu, 19 Apr 2012 09:17:01 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq31.esams.wikimedia.org
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq31.esams.wikimedia.org:80
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "2666"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        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
+        0/8BWdxqKVAfAAA=
+
+    http_version: 
+  recorded_at: Thu, 19 Apr 2012 09:17:01 GMT
+recorded_with: VCR 2.0.1
