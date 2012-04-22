@@ -25,28 +25,17 @@ module Riki
         
         # Check _in one coarse-grained API call which cached pages are still current
         if results.any?
-          query = api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'timestamp', 'titles' => results.keys.join('|'), 'redirects' => nil}).first.find_first('/m:api/m:query')
+          query = retrieve_pages(results.keys, 'timestamp')
           query.find('m:pages/m:page').each{|page|
             last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
             title = page['title']
 
-#            normalizations = query.find_first('m:normalized/m:n')
-#            if normalizations
-#              Riki.logger.info "Requested page '#{title}' is probably cached under its normalized title '#{normalizations['to']}'"
-#              
-#              # check cache again
-#              cached = Riki::Base.cache.read(cache_key("page_#{normalizations['to']}"))
-#              if cached
-#                results[normalizations['to']] = cached
-#                titles.delete(title)
-#                Riki.logger.info "Found cached version of normalized page '#{normalizations['to']}'"
-#              end
-#            end
+            # TODO Make sure redirects and normalizations are still current
+            if indirection = normalization(query, title) || redirection(query, title)
+              require 'pry'
+              binding.pry
+            end
             
-            # TODO redirects
-            
-            
-            # TODO Make sure we delete redirects and normalizations that are stale
             if results[title] && last_modified < results[title].last_modified
               Riki.logger.info "Cached version of page '#{title}' is from #{results[title].last_modified}, but an updated version is available that dates #{last_modified}" 
               titles.delete(title)
@@ -58,8 +47,7 @@ module Riki
         
         return results.values if titles.empty? # no titles asked for or all results cached and current
 
-        query = api_request({'action' => 'query', 'prop' => 'revisions', 'rvprop' => 'content|timestamp', 'titles' => titles.join('|'), 'redirects' => nil}).first.find_first('/m:api/m:query')
-        
+        query = retrieve_pages(titles, ['content', 'timestamp'])
         query.find('m:pages/m:page').each{|page|
           if page['missing']
             Riki.logger.info "Page '#{page['title']}' was not found" 
@@ -82,7 +70,7 @@ module Riki
 
           # Cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
           # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
-          normalization = query.find_first("m:normalized/m:n[@to='#{p.title}']")
+          normalization = normalization(query, p.title)
 
           if normalization
             Riki.logger.info "Also caching page '#{p.title}' under its non-normalized title '#{normalization['from']}'"
@@ -94,7 +82,7 @@ module Riki
           
           # Cache the page under the title of the redirect source
           # <redirects><r from="&quot;Mimia&quot;" to="Mimipiscis" tofragment=""/>
-          redirection = query.find_first("m:redirects/m:r[@to='#{p.title}']")
+          redirection = redirection(query, p.title)
 
           if redirection
             Riki.logger.info "Also caching page '#{p.title}' under its redirect source '#{redirection['from']}'"
@@ -111,6 +99,28 @@ module Riki
       end
 
       private
+      def retrieve_pages(titles, rvprops, resolve_redirects = true)
+        parms = {'action' => 'query', 
+                 'prop'   => 'revisions', 
+                 'rvprop' => Array(rvprops).join('|'), 
+                 'titles' => Array(titles).join('|'), 
+                }
+                
+        # MediaWiki checks for the presence of the +redirects+ key and ignores the value altogether
+        parms['redirects'] = nil if resolve_redirects 
+        
+        api_request(parms).first.find_first('/m:api/m:query')
+      end
+      
+      # Normalization is always included in the response
+      def normalization(query, title)
+        query.find_first("m:normalized/m:n[@to='#{title}']")
+      end
+
+      # Resolution of redirects is only included in the response if requested
+      def redirection(query, title)
+        query.find_first("m:redirects/m:r[@to='#{title}']")
+      end
 
       def validate!(xml)
         raise Error::PageInvalid.new(xml['title'])  if xml['invalid']
