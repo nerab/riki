@@ -31,4 +31,12 @@ class TestPage < Test::Unit::TestCase
     assert_equal('ISO 639-2', mocked('test_normalized'){Riki::Page.find_by_title('ISO_639-2')}.first.title)
     assert_equal('ISO 639-2', mocked('test_normalized'){Riki::Page.find_by_title('ISO 639-2')}.first.title)
   end
+  
+  def test_normalized_cached
+    # ask for Eddie_Murphy
+    # make sure asking for Eddie_Murphy results in a cache _hit_
+  end
+  
+  # TODO Request a mixture of multiple pages, some (more than one) normalized, some not. Some redirected, some not,  
+  # "Mimia" => Mimipiscis
 end

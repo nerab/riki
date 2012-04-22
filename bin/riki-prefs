@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'optparse'
 require 'bundler'
 Bundler.require
+
+require 'optparse'
 
 NAMESPACE = Riki.to_s.downcase
 
