@@ -18,7 +18,7 @@ module Riki
           cached = Riki::Base.cache.read(cache_key("page_#{title}"))
           if cached
             results[title] = cached
-            Riki.logger.info "Found cached version of requested page #{title} as '#{cached.title}'"
+            Riki.logger.debug "Found cached version of requested page #{title} as '#{cached.title}'"
           end
         }
 
@@ -29,9 +29,14 @@ module Riki
             title = page['title'] # will already be the normalized and redirected title
 
             # Make sure redirects and normalizations are still current
-            if indirection = normalization(query, title) || redirection(query, title)
+            indirections = []
+            indirections << normalization(query, title)
+            indirections << redirection(query, title)
+
+            indirections.each do |indirection|
+              next unless indirection
               if Riki::Base.cache.read(cache_key("page_#{indirection['from']}")).title != indirection['to']
-                Riki.logger.info "Redirection source #{indirection['from']} is stale. New target is #{indirection['to']}"
+                Riki.logger.debug "Redirection source #{indirection['from']} is stale. New target is #{indirection['to']}"
                 results.delete(indirection['from'])
                 titles.delete(indirection['from'])
                 Riki::Base.cache.delete(cache_key("page_#{indirection['from']}"))
@@ -43,7 +48,7 @@ module Riki
                   titles << indirection['to']
                 end
               else
-                Riki.logger.info "Redirection is still current, no need to re-fetch #{indirection['from']}"
+                Riki.logger.debug "Redirection is still current, no need to re-fetch #{indirection['from']}"
                 titles.delete(indirection['from'])
               end
             end
@@ -51,24 +56,24 @@ module Riki
             if results[title] # anything left to check after resolving indirections?
               last_modified = DateTime.strptime(page.find_first('m:revisions/m:rev')['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
               if last_modified < results[title].last_modified
-                Riki.logger.info "Cached version of page '#{title}' is from #{results[title].last_modified}, but an updated version is available that dates #{last_modified}"
+                Riki.logger.debug "Cached version of page '#{title}' is from #{results[title].last_modified}, but an updated version is available that dates #{last_modified}"
                 results.delete(title)
               else
-                Riki.logger.info "Cached version of page '#{title}' is still current. No need to re-fetch."
+                Riki.logger.debug "Cached version of page '#{title}' is still current. No need to re-fetch."
                 titles.delete(title)
               end
             end
           }
         end
 
-        Riki.logger.info "Currency check leaves these pages to retrieve in full: #{titles.join(', ')}"
+        Riki.logger.debug "Currency check leaves these pages to retrieve in full: #{titles.join(', ')}"
 
         return results.values if titles.empty? # no titles asked for or all results cached and current
 
         query = retrieve_pages(titles, ['content', 'timestamp'])
         query.find('m:pages/m:page').each{|page|
           if page['missing']
-            Riki.logger.info "Page '#{page['title']}' was not found"
+            Riki.logger.error "Page '#{page['title']}' was not found"
             next
           end
 
@@ -84,14 +89,14 @@ module Riki
           p.last_modified = DateTime.strptime(rev['timestamp'], '%Y-%m-%dT%H:%M:%S%Z')
 
           Riki::Base.cache.write(cache_key("page_#{p.title}"), p)
-          Riki.logger.info "Page '#{p.title}' written to the cache"
+          Riki.logger.debug "Page '#{p.title}' written to the cache"
 
           # Cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
           # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
           normalization = normalization(query, p.title)
 
           if normalization
-            Riki.logger.info "Also caching page '#{p.title}' under its non-normalized title '#{normalization['from']}'"
+            Riki.logger.debug "Also caching page '#{p.title}' under its non-normalized title '#{normalization['from']}'"
             p.normalized_from = normalization['from']
 
             # TODO We might save some space by caching a flyweight of p here (like an alias)
@@ -103,7 +108,7 @@ module Riki
           redirection = redirection(query, p.title)
 
           if redirection
-            Riki.logger.info "Also caching page '#{p.title}' under its redirect source '#{redirection['from']}'"
+            Riki.logger.debug "Also caching page '#{p.title}' under its redirect source '#{redirection['from']}'"
             p.redirected_from = redirection['from']
 
             # TODO We might save some space by caching a flyweight of p here (like an alias)

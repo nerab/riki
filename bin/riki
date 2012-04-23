@@ -85,7 +85,7 @@ option_parser = OptionParser.new do |opts|
   end
 
   opts.on('--version', 'Display current version') do
-    puts "#{File.basename(__FILE__)} " + Dropcaster::VERSION
+    puts "#{File.basename(__FILE__)} " + Riki::VERSION
     exit 0
   end
 
@@ -94,7 +94,7 @@ option_parser = OptionParser.new do |opts|
   end
 
   opts.on("--trace", "Trace (debug) mode - displays debug information and stack traces") do
-    Dropcaster.logger.level = Logger::DEBUG
+    Riki.logger.level = Logger::DEBUG
   end
 end
 
@@ -135,7 +135,7 @@ if results.empty?
   exit 4
 else
   results.each{|page|
-    #puts page.to_s
-    Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
+    puts page.title
+#    Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
   }
 end
