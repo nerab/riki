@@ -136,6 +136,6 @@ if results.empty?
 else
   results.each{|page|
     puts page.title
-#    Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
+    Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
   }
 end

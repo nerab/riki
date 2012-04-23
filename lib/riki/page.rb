@@ -146,7 +146,7 @@ module Riki
       end
 
       def validate!(xml)
-        raise Error::PageInvalid.new(xml['title'])  if xml['invalid']
+        raise Error::PageInvalid.new(xml['title']) if xml['invalid']
       end
 
     end
