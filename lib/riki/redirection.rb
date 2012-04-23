@@ -24,6 +24,6 @@ module Riki
   # </api>
   #
   class Redirection
-    attr_reader :title, :last_modified
+    attr_reader :from, :to
   end
 end

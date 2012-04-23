@@ -61,7 +61,7 @@ option_parser = OptionParser.new do |opts|
 
   opts.on('-m URL', '--url URL', 'Use URL for accessing the wiki API') do |url|
     Riki.logger.info "Setting the wiki API URL to #{url}"
-    
+
     # TODO Accept symbols too - wpen, wpde, etc.
     # Query http://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=interwikimap
     # and use the prefix attribute for lookup
@@ -115,7 +115,7 @@ Riki::Base.password = prefs[:password]
 Riki::Base.domain = prefs[:domain]
 
 if use_cache
-  Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0)))) 
+  Riki::Base.cache = ActiveSupport::Cache::FileStore.new(File.expand_path(File.join('~', '.cache', File.basename($0))))
 end
 
 if ARGV.empty?
@@ -135,7 +135,7 @@ if results.empty?
   exit 4
 else
   results.each{|page|
-    puts page.to_s
-    #Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
+    #puts page.to_s
+    Riki.logger.info "Page #{page.title} last modified #{page.last_modified}"
   }
 end
