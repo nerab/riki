@@ -1,0 +1,1955 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&prop=revisions&rvprop=content%7Ctimestamp&titles=Vienna&redirects=&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "124"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:03 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "29095"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA829648k2XUf+L3+ijAFqqrMzKzMrGfWqDSoqq5+TD/VVTO9
+        YqHRiMy4mRmdkRE58ajsrM4BxpZhaW1z4ZVk7XK1BlfaMUVapihIJC3JpAS4
+        yQ+CAYFaQ5CF9YceabH6sP/Ent859964kZXV3ZS8wJrydGU8btx77rnn/fiZ
+        91+MI+9CpVmYxAdfaDWaX3j/Z3/Gn4QeXY+zgy8M83yyv7ExnU4bYxWE/jQc
+        hY0kHWzQ/Q16buMLP/szHxcqnf3sz0z8gcrkHw//CYODL2xv7+3sfMHDSM0v
+        eHmYR+rgCx+FKo59ejFVFyE+nPGfdHusstwfTw6+0G622vXmVr3dPmtt7W+2
+        9zc7X/4C5rSfTfwejTFJVabSC/WFn3358jFNLFW9fP6EBp7zf721IMz8cTcc
+        FH5OX1j/5JOVly8Pu0mRz/Oh8no09dyPvKTvHRZZnoY+P/BhprxgPPMCP1fZ
+        HP89eNjLk65KPZpRi5+ZTOrj5ELVwzhQfb5yJ+4n3eSFl6mc1jdWcb4yj/2x
+        8vj/HchycSkPL9QzfecA01yZh2OC1LNsNIvCmC4fHCdRBABeJLGHJxrPJwP9
+        VBZe8pAH7U5z8sK8SivBAumyd0/187/+9FfScDDMa16eTOhHN8nzZLzvnZ8/
+        9vOhX2Q1T+Yz17+fPq3RzdPe8NX34m5axLH3yI8IxHO6FCVZ5jm35FlMiwDy
+        OKQdiFM/mNu/5L6M753mBD7v4USl/pz+9vMsob/15/IG3VeToYpXM++YZqKC
+        1I/s3PieH2dBMpYX7hZxlg/DLE/SMOsNVebdLzJVjM1w8vgk8vPLK4PwVf2g
+        T++mNEiucOGDhO7H9dM89YtXX6vfUPFojFnQg6qnMqCmN/SjyFvTSLI+P1WX
+        ckMGvJHEfuEdh/lMft8uCCvSfOpnhJ0CXrNRfdpX7N5N/Et4x7ubXQwsDgxD
+        FQUaMbwn/mRi7sudZ3r/D/ac3c8UIbHFMY9/tjrtHXfgsT9htFmZ018lvngH
+        95IeHw7MRg8QxuY8rMwnRTachLF+/+DK9cjvqujZJMlCDHLgRYR+K/NekqRB
+        GOMAPUvVAHcOz2gNRTcI5bQ/y2cTRYhexHk6u3qndYANxfvO6ZzzFQDTfRxH
+        iZ7Wzzx96r18CSiHvSSel8f6yiutA08OX6R82q1nTJZohff9WZLaq+acnp/f
+        D3tDX0Xe7VefFZOIPrNGM0x6IcH6hhonvZSg2KNjk+azypQfvfq1p0/Xq59p
+        8Wb1VP3qx1ryMZ/e9T4iBAojf5QU8rkzolm3UqXizKND7dmf3mGUq1Qoy/xW
+        +ur7seJP+qnyaeMGcZgXgeLN50t5QlTv2Wjc9g62WluNnW19PfLjgC97B5ud
+        7UZ7R1+fEtRTeb7VaWx2aPeTSREx2jzzs2dJ/wCEsXKZv3HQ2m3RF9q0JWHc
+        o6Eyha1wHgtoMXRuMPiBt9Vsthvtyv0i7fqMpq3O3ube5k7l5ljlaYKbPb/h
+        tbdanWazWXkgTnLePeANkY1wZLal9tNR/l6q+j89yN97+bIX0mNT1Z0XaXTg
+        8LrMvNbw8w26T7PdsNdUvNFVF4mKRoqo4qDyI6OnCJREBp4RV/UVyMHiM88u
+        i2fP/SFxsPqzjwtCGz/K/Ljv02PN9ub2XrsxzIkrz4Vdnp4dnt05Pbtz1zv8
+        8PTs8Z1DxoAjdfHqe3o877Lwfk6P06UjRzQ8U2FOLKvZ9mIied4RyFKGTfbo
+        +HajMCMyWMKGFukJt2s3PYfhNb253wMh5HutjveBH9N3ZpoZApIbGpTeR8ev
+        fo1ndj/phlGYv/os98Y0iS8XoyLu5xrqHh/Zn/64SPL3Yn9IIBqpYZol/T6w
+        4UK15NabN+eilyjsC4E6zRt+Nnn/zg1C592dnybZ4b3uQadtYIdJ0ZP7Mrs+
+        USYizt6DJR/2BmpAx+kjfX0ENjzJQA8JT4lXvfosyOkPB3p6Ft58pvyUANfc
+        q0BrmxBuQCiHXehUYbUyh6RzmcRaQsCxPyapgTigd1KkxCYJ8c/okfnxyRlo
+        XpH36KT1Sb7Qz3+pVY7x7Mbp2bWjnBbjMe2lHux0YTTz6sGX6OjRwQkOtvbw
+        7/ig1ca/2cEm//vg9OABPZDEg+CgtcN/jA/abf4jO2i3+I+TJwcnK3MVqQt9
+        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
+        THHvNHcbzVZDMp3KCKYb5VoqkcbttpsBtRhsLKr1i1ySLlAxIkUwbRV3ShsN
+        IwcpjkU6UrM5/sH5Xdvs4Cy857Ub21/k4PNHCbZm/ggWOGaQm7UdPNBsdL4o
+        nkHjeVtrtWu7cmvvi5aqu6WpRHK4UtoQsWKSM9VfjnAEmo1YFQRxgmIYF7BP
+        blxcNlvgEc+QhU0o482B5X5+8OjGzaUluuyRspUKbfmdj5JolF2++mwY0dgN
+        77ZfkEpMxKkbhyjOcYdzRNhLNTcx2QdaK61sEFJwm516e3MxTGz/5Zyjhg5M
+        VsWIuHg3sgm0+SwyQMppD+usmu17Emj9ntZ3/4GHAnYr89bu9pY3n0Pu4n+2
+        +Z+O/Oq05J/2Jv+DUqV1evMMxUgxp27KVcBKws/j1bZ28Fp7t1WTUbe3W7VN
+        GbG2u9OptTZ3cb/W3KP935TriI3Zbetndpu1zuYePjbvJVE28WO9nj29xrlM
+        RC+hs93i+e3IP7vyz57808E/ICXyz947LKG209qptdrbPJmd9m5te2dH/m51
+        ant7cn17kxa1taP/putbe/L3dpPe3ZTnd/dqW5vbK/NPIFHfUsj2RCwHh8VF
+        zDNKefos9cfAQe+k7RFuTv30kmNq2b3uhBE8YUGmPH0kJ1ck8pq1F5XvPEy7
+        LLteVOO8cn+kYgnyOj07nXMZcBKDC0SCIshrZaW0yehUAHyXo8fVFbuhCEX6
+        OhMOwj6oYomVG+GynEgYV1WVPvKz0PoowX5CTm2yIdR2+Mipr5wngY/gnxA5
+        p6bYIIevwOZoxDJSdgLJQdZB/FM2GlspFPm/QLFM7CSwRFjtAflkacM7MRU0
+        kec7MClRRHGQvZnm89Z2a54n8+321nw87+fz5tzvdtODJP7kk4aFYWTi3qVE
+        DYoohWYl5+dJT3GkvkYLK8DR9oXGk4LyUpH7hKtSCTjvvvoealybh3R4YV+b
+        I+flbfdyJUARJgfCvTEn4sPVKs4ylEocKAkKy9WYVU2obJh9CYh2G3Bo78yP
+        5zdLGOgSkGMfYhIMwKRsYNble5vN+X/83WMXblKiEum+MLiLodwF+OLzCIKK
+        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
+        3mrPN5vzB/PWzrzdnrc35ydz0I19Pxi3svyZfGH/8KzeeZbRyVX7HaIVzTmh
+        FMrhHTCAITmcn9uee1o+954+1TtEbOpCh/iNJ/lM+gvAAcg1GEj0sbnJdgxT
+        GMt1pLv3H0leEJir7YRia/e98cHELQRZffbBh2enXtszmUM9jiQbhE5ecXWT
+        q29zkz9u9UMvrHItfZ5WVdN6y+wQcS7KoW390sokZ0pJA62j4+oQVzCpettk
+        ByOOhA6+YGyRc7CA+Emqzz9ByrWz6qWDvgXZqg+XhQrNntKwmqYj0BI4TqrI
+        rcN5oDTKy8/LYfnzJt31Kz/Ho8rPi7Dysyvaz/k5QRVrkjn5/f0nKpY9oIlo
+        JQY/xvuf//f/9vN//o3P/9mvyIV4sP/kh79tbqf7f/WP/uqf0f/+6X/5LX2f
+        0VwPm/b2/+sv/9d/Tf/7zf/6L/lSP53QA6++Acby6ldBAob/8d+rdXn8cv+j
+        ma/f7cb7r7/+rddf/5PXX//2669///Vv/eLrr3/j9df/mG9eDuvjMK7H9DU7
+        1a7a//Gv/PiP//zTH//uj7/j/fiXf/zdH//gx7+rb9Vf1JMo2K9eDfet5ku/
+        Brj7B+59Wt0T5evRk/3XP/jXr3/we6+//89f/+Abr3/wR/zHr7z+/lfkfrZ/
+        pH6o/07dgXu+A5HeRXUOPdWtPJvtf/TqW4H60S/Jz6Ryc1YuNvDLvydBz7mh
+        nL+zbvlD5TRWqP+O9v/sl//sD//sW3/2A/rfv5drmTNNJR9O5MeL3L1VuD+U
+        O8G+v/9Xv/R//ou/+qf8axj2KzeTci59DSDlrR0WjAMaA/ozxkP9VCGPCVoO
+        fIBG7gwu9j9S+qmBP6Af+iODwP3kIJKpenXPfnqU7P8/fyjQHc72/+J/+Ivf
+        /ot/8xffo//9hp70/uvPvvv6sz95/dm3X3/2jdefCb4NXUgO03KrQ2dVYVAe
+        qNB3JxJWwJRkGgdefV3u8qbHgEVGZz999a1RKOAIc/e9odr/y3/1l1/9y//t
+        L3+Vfz+/KL83otPye999/Xt/8vr3vv369//p69/7xuvf/wr9V27SMaxg3cjf
+        //wX/tXnv/Crn//C//r5L8jBHI0WnpmWK8um7jxGCzg8pFnO6ETLTaCHPcSj
+        WfXRcfq8eiECnOIg6Sb6jYi29oe/rfc8cqAeuUgYhc/dGUVhSb4iEKA//fX4
+        T39dfo4T571hsX/06ps9KRM8Hi2e+HG0//o73339nT95/Z1vv/7ON15/9yv0
+        X7lDXxjaYcYpY8m/+crrz/5Q48q/+UUHXfz0cpEuji9j93CMM3f+43gBTLP9
+        zz/9nz7/9Hc+//R/+fzTf/L5p3/0+ae/+vmn/+7zT7/6+aff//zTb33+6bc/
+        /1TObewPnQXGkXOA4iCr40Jorzz39//mH3/9b/7x//43v/D9v/mF39eHMXVo
+        STjkH2Y4B71jh9bGyUX5I+npY7b26lPhc4K9YzoolWVN4i7D4L/8pgXLxJ84
+        sx8loWzJD+SmhlLdN8vhj3pr7BaQj0x4fUQx/4n8dLGklw5dZExdTEgJxkeq
+        N9Q/3N34uCjXlhbEVX75z3/tx9/BOv78X+iL1XVltAXVCw4Rznru2FmVpGf5
+        x86TldOefbz/0XNlX4sr97ijaeXKCL8s48iifWTzPJcflwSj5yqYaRhlyf7N
+        cGaHpk36H3/83T//Rfk1LGlbP3Tm5ux3Hrlfzv3917/z3de/8yevf+fbr3/n
+        m6+//RX893f+WIPcr+d+qomhHNA8t8Dy/vyX/vNX/4//8J+/Skz7u3JzuP/6
+        Dz99/Qe/9foPvvv6D37z9R98lf/v9+TmoArmPHW3Nx8B9eXvIhhXHy1GV7eR
+        2Atj429ZbCxItpm9+qYe5EL1HIS5UJOSz1xAdHj1bwUeFy5nC4v6BSOaZrVT
+        vyIMTPHsTD88LYr9v/0P3/m//9E3//aP5CzOQpB4EPnf/MuvyZUKvpDcMyOM
+        /Nvvfev/+sOv/e13ZJ+CEEhUCk5+Xs/GA2fql0P3jZ/ZSNXFz/J/Q65YQX8j
+        rEL/g58fFyqd0b8kl/7s/ws9wxIqBiMBAA==
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:04 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3ABuildings%20and%20structures%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "184"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:05 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1292"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        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
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:05 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AVienna%20culture&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "158"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:07 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1429"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        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
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:07 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AEconomy%20of%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "163"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:07 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "248"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA5WRy07DMBBFf8XyvvGDJhFWki6KxIodYsFuQqbBav3Adhvy
+        9ziidIMQyvbO6JwZ3Wb3aU7kgiFqZ1sqCk53XQNek5zb2NL3lLxibJqmwuCg
+        YdJHXbgwsjxneY/Rrvk4Y5i75g0Sji7MBk2fgTkwZEFwSpJOJ2zpA1z0QB4x
+        JkwWQ85nn2MPIy47Jg/A+JZKLviGVxu+fRaV4qWS9Ssl7EYU2xtyf5WqvTMe
+        rMZIeog4EG3Ji0Zr4ccSz32+8E+PVPJeibsVHndYbahVWf1reIJwxBRXf1Cq
+        slaSf/PZrzbYtaalte4L1FMwX/gBAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:08 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AEducation%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "165"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:08 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1159"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA5VX3U7jOBR+FatXs9KG2m7SnwgYFYayCMoiCDPS3rmpaS0S
+        p2snsN0XWu1zzIvt56QjtkzdFClXaXrO8Tnfz/Hx57/yjLxIY1WhTzrsiHY+
+        nx6LlSJ4r+1JZ1mWq7jbfX19PcrlXIlX9ayOCrPo4vcuvut2To//rKRZnx6n
+        opSLwqxzmc8QEC9y4kLQDilVmcmTzvhZzGWubLqUllyucy2sqnLy6auSWotf
+        8N16hc9WYiHdf3JpS5GvTjqc0kGAp0cTxuOQxnz0R4d0d2R41Ko+TLkmxRMZ
+        r1aZknMyNqUlTZJ9OUYBYwHlCY1izmIaeXKMK1saJTS5EaXSZJxLo1JBrrTF
+        B1Up96egUUD7CR3GbBDzgSfF+d8yXRL0qSgyS5DkkOLRID5MGLpDY+qLPFFZ
+        LlI3hnV7UEYDGgYUQUeoNe5xT9BL4wZPplLPZXZQI1xkN9KERXFvGIe+Xl/e
+        XxLGyYXJFsLavRF5QHsBZ4nraz8O+56Iv4nKkjnwN5XSSNtS47Bu6Qjh/Ke/
+        mo6/XJyTN+jtG1Mf0w94P2FhHI7ing/HV/qpMDnwVWhyLwE3+SIyMhGpyloS
+        DAPUzUJHlIjHPPQm2AzJ8WRaZDKtMmHImSpKQE8XWbHYl+bd/Liv21e6lEbX
+        50D950ujkBbUeaih7XK3g9Bx0p2I85j2/dTfTvU/ITgow6getKMkuO/JcF1k
+        mVw4xboW2bOdVWZxICAjyIk/qrbSvIiyMC70N1TbIoRRwNF4p1AxG/qiAjIL
+        CwWpMkk+bSRrn8I2beZRDRxw3TfR6+rpSUtDitmPqvfipGkCNJXFrIfAnqg3
+        opoj6FlllZbWbvDRgnPEHiU0hNj5UXGzTr//K8nECP39H6Ec9RtAtKlTI9Mo
+        GfF9vTgrZmQqTCn1Ph1ppJky5yugS+ij5BT+mm5D9xB+uPBDVyyUH/V6i53+
+        /uXx5sO8CAMO5jHgwS9W2wVPMcOUCD0nd9I4FVN6UTvwrwecZVBzHY3HWTiU
+        xZPxVs6/yVlLIOb2BQQCpSNfU25lBStwnAP6tpm4H3xOxUHCvgOf12vuLibk
+        zihElO+mOhUaYXOpyw8OOPIP+F5aKQz2Bo+234ly2arr3I2coW+QgDBmPqw+
+        qEVeYcQTI6v5h0AFYgFXcEAn5wwe5cmQLJ09wyv2TqJhKmO1HPb8Hv34bITS
+        znlQsTzMqx38B7V29Rxvvb3YnuytKCsDFmMaRWVSoMtR4UY9SYgamoM3BxCh
+        8VdnHpFTY+7bjx6ha0ocskG/2ZGDUMx8nWoivYPrRVroIldpc5gfKt1u2pHj
+        Xw/q4evdhnlfC/jp88fpB7mjcbTdHBa+rdGbG0k83my8OMoEpe+6ENhqhgvM
+        jmPAaGqXAftC3prpYYWB2CW5V3One9s+tjsHrY2XJljbcbVh7Tl2jij5aW3b
+        ma255LD6IoXF7Z3N78q2z452pxjWnGzUkb7f7Q8+0G7MkfEchoIt0jTLsciq
+        XKvWetDgnttBQjy0qaf70321u7nIunvt6X87gDWTGg8AAA==
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:08 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AGeography%20of%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "165"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:08 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "916"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA52X3W7bNhTHX0Xw1QpMMUl9WCaSFFs7NFi7dkDUBNgdbZ3I
+        hCXSJam66dXeYQ+wt9jV7vIme5IeOlm2uKYkF8iVYvx0Pv7/c45On39qm+gj
+        GCu1OpvQEzJ5fn4qNjLC58qeTVbObfh0ut1uT1qopNjKtTzRpp7i/6f4u+nk
+        /PRDB+b2/HQpHNTa3LbQLhCID9rII8gkctI1cDb5obFgPmpjnagcPr3d4MON
+        qMH/ogV83G7OJoxQElMWE1bSjLMZZ+lvk2h6iGcWYBdiuYq+MxKTeNbDJPOY
+        5DHLSzrnCeFpEmLaDRjVB8pjSmNalDTnCeNZEQD9KLq2FsaB+j66kqCUGAtN
+        OJkFoC+F6hbwz+9/vKvARC+EEk0fdRZjKVlSMsKTOWckRNVKdFJZ6IU9DZGG
+        mrKDrYciewpjLAD7ydpGqro/R9/XpCQUyxbO8ZVoGuk+S4Xa7OM9aC8pacrT
+        nKehTrwyUn0eCK2ISRbTeUkpp6gUGkBdiOUadnGNUcqjjtEbc56FKncBspE1
+        qJ3XjldgOg9yTSuUsmtdHyOXLOS3C72C6Nr75KjkU84KTkPeu7j72zloKm1u
+        +mnYarobCemMJ6H+/Kwt3NhhmA8tK+nMe42EQnstVg0MitArMGbUwxjD+g3C
+        wAzF9/9+pDwL2fcN6I1uKjs6wpyzJCzDN3ohuvFhJSG7/SJwyRwrYy+SEA8k
+        jruBJO97mpCSJn4PZXkIJpcrD+v6N8d/ay3nKDkSsthb6KyTNy4SLTqjqWCM
+        7FAmFB0RGn9vYRvdL4+xsw/XZBaCdXd/ermN6AcifYhpSXHnFrh5A8h32Irq
+        7q/FwLT3EVJfQoIbiIZLeCma3ZQaMkXhE2apX5C4PII+u8T+qmNntNdN6u3L
+        QnW8lIBXy/B+wz+cK4VfIiRktPfKHVFBuqugH6GhlO+TjK61ruxYv+Xha+hK
+        G236br4noCKc59Xw+fgEhbYNlf8aUxx3Ofo1MSsJlp/sTwGaPvJePBzA/KW0
+        zsils5G+2VOL7RZ4Jwd9l+Fhuj8ED73htXAC3yGaGlqQqoKRb/LKLGKGueD8
+        yfYdfuhNvwqztpFUo+iFvzcpmh2HEdm30yH65YdOGDiSn+yGHS6LYpjvDID7
+        Jj72YbjTh1xyuMV0JyJSktQPrpQNor064/dtDYtO1dG/khqvI/p4c02/+jKb
+        Pnyy+S+48y9P/H1xBA4AAA==
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:08 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AHealthcare%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "166"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:09 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "216"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA33PsXLCMAwG4FfxeSpDYhly0PqS8ARMQAc2AyLoGjsmMU3z
+        9iiFDY5V+vXp/nz552rxi21HjS+kTkEuy9wGEjz3XSHPMQajVN/3qcMj2Z5+
+        KG3aSvFecU7JMr9csR3K/GAjVk07OHR7BnngxEiAFJFijYVcsXCwtdh6+n8Z
+        B9GcxDeh95ZDQ+BMsBWOBw67aF0o5BTgK4HPBOYbDQZmBuY7KdQLfh2R/JnF
+        jzs5eWNqnUCW6GyjFyYDM9N3Uz2VUI92Y9nyBufNUE0vAQAA
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:09 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AHistory%20of%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "163"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:09 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1631"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        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
+        Pf4PUqYqeNoVAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:09 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AMarkets%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "163"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:09 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "236"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA43QPU/DMBAG4L9y8gRD4kvShmIl6dYJMVUMbKYcidXace0r
+        If8eR2XjQ6x37z06vc32w57gnUI0o2tFkaPYdo32BtLcxVYMzF5JOU1TbunV
+        6MkcTT6GXqa9TDkpuuZ8oTB3zUEz9WOYLdmXBKaBhYVAAWz4RK14MJFhfAMe
+        CKwOR+IIxsGTIed0Ss0+hbzuabmwFFlb34oSC8ywznC1L+5UuVHr6lmA/MHf
+        BZovroebq3j7T7LCpP5CPup4GJZf+Q8M7zPcZGW9x0pVa7Wqr5j81oj8qmpp
+        rvsExPN+qnwBAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:10 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AOrganisations%20based%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "177"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:10 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "583"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA42UbW+bMBDHv4rFe4JtIA9Wkirr2qrSHqSVbdLeOXAhVsFm
+        tmnGt995yyptK6ESQpYxvzv/73+3vvrRNuQJrFNGbyI2o9HVdi07RXBfu010
+        9L4TSXI6nWYtVEqe1KOaGVsn+D3Bc0m0XX/vwQ7bdSk91MYOLbR7BOJGSwKC
+        RsQr38Am2vXOWyU12ZWygnYg5kAeSgW6BIeHhg7PdLKG8EMLzsu220ScMhrT
+        eUzTgs4FoyJPv0UkuYQ/M8ltr6vLXMYDl2Uip4LTEe5bibCvN2/ITW9NB5NE
+        Pi8oFxkVdCzT3yDM9NbYviW7ptvL8ngJHPKM6bJguaC54PkU+MGgBn4gB2NJ
+        YaV2jfRYYvLg+0pdVpvF+IRQXNClyLKRULdQgZUNuQPTmFqVuPx4OKjyoj4I
+        ZjHnBU9FuhT5aoyNhZMtaI/QT6o+ekd2NZZ0mJCIxywrKAq/EnSsmsURMGfl
+        /KPF90Qxw1NQFoA5GwHegYOmceVRHjxBTcjOOVRfgfWgp+3HC7YQ6UqkfIR/
+        rx2ueg+hXQoojzoIPoQw4FxQadqRy6A42jwbU+UdmM40ldLwxzqvbEi6GC/j
+        +94B2ltp0llTW8x2whtZ6B1ME73Bx6CftfJQkQ+//OzIvUaLt2dzg31CA5Iv
+        2P5aTsRaxTwr2FJgq/5zAZY9B7s+zzTxmtHl+j3OwBc7ly+CLRkTfDEZ6tq0
+        ndTYpGQvHd4U5fv7Qi/Hea5JKvLl84RI/pvKyXlch+m9/QlFTUIEAAYAAA==
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:10 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3APeople%20from%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "164"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:10 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "2249"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA5VazW7bSBJ+FcInLzCKyRapPyQZyB4n8cTZyTrCGthbW2xL
+        DZFsbZO0LGMO8w572mOO+w5782WfY59kv2rSGcOz1a0ABixLycfq+vnqq2q9
+        /vG+LKI7ZWttqjdHyav46Me3r+VWR3i/qt8crZtmOzs52e12r0qVa7nTG/3K
+        2NUJPj/Bvzs5evv6762y+7evl7JRK2P3pSpvAIg3yogg4qOo0U2h3hydSVuY
+        aH4jbbPGm/st3tvKlaJ/UKq6keX2zZGI4/EgHg3idBFnsySZpdO/HUUn/wfu
+        ZyUroCl7I5c+vCQB2CAZLkQyGw7xw+G1hf5+xDiGkQzitSwaZYGoa++Bp+7A
+        gBOzNJ4NYwbuXWFsZ6GVa1manV4+BGCzQTxekBPFLE4DVuayrKNjtTSVKXXd
+        /OnwEGWcSz/Je+AWQD/+JO19ADWJya0CBnd+4Ay+MghR0wH7jJy480/IyFjM
+        Eg7ui6nXspLR/NaavS4DBjqPxog7kkkwiBe1KXIVzdfFyuoygIgfHDmewIuz
+        mMt1OFKXustPvVwrWwXSkzKUAo+zi4wBnbertm4c4Np4ERFvB7qAH8V4lnLx
+        vihq5fB0tfLHZkqhjkeLeAw3zoYjLtQoRFVE842ypfSeGaEZDpIxAcKXbGiu
+        TXEbzQsq8MGVapq934+JGCSTRQLWyJCSnB8Ll48XF5G5jd47S32wdPbJQCR9
+        XooJB2uX67zdKDLXquW6+SH6if7EQxaqhl+8EcNDpoMEORCDQXl/nEqQnZVR
+        d4ZgpsYuU4lQPM54Yez1479t07iusApEMBmIkfP2cCa4cj1bW/CI2a6Jswp1
+        L6vcm2qUuEOiAZC1AF1x7v6smueI0fEcxeH4dqvsrbGlsl5KBNuIgZgu0BBQ
+        ySzbzItbq/IfIlHl0Werq6Xz0SdTNapqzZ0JnCQbiIzoZziaZVxdX1S3smoo
+        pnqpJQJhdgCzCAiSpq7peWeykDc4XOBpgjIIB4pTno1/ecCDSuMNbReCEUGl
+        aBcc1DsrK0Lz5SFlNeoyWSTjWTKdxWw3lxtzQ1iqCiVe4hBTQsymfD0+JcgB
+        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
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:10 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AReligion%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "164"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:11 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "520"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA42UzY6bMBRGX8ViXYLt8BcryahNF+1UlaoWdaTZOeDAVcFQ
+        25TJi/UF+mJjk6iLTEiQWNnmO9fXx14/vDQ1+iOUhlZuPLLA3sN2zTtAdlzq
+        jVcZ07EgGIZh0YgC+AC/YNGqMrDzgV0XeNv1716o43adcyPKVh0b0extoB1o
+        kIvAHjJgarHxPv77u69BlmgnGmHsT3bm2NmJjpfCrWqENrzpNh7FeOUT4mOa
+        UcKiJQuTZw8FVzI/a8VFDQZ0Xgn0pa9Nr0sbD7IQ6AmEvM3AiU9pRpYMU0bw
+        BOMTaGM3htoDMhbyKAaNQKKfNl3yO/mpT7DLpyu2nNrDj7xqjRFSGziYdzNy
+        Yx9HLhenDMcsXE3lmgX6ytXLrH4nNtAnSYYJC9PpWr+3DZdox03V1pCj9yqv
+        CmhzoYVrz93SLcN1JXIYYr9oAvMspFG8PigQRdUebhUeOVFoPIoSXRZOwv+R
+        u7Of7EOvgNcacTMe5wRK93tr9CUsHbu0zKjVJWYRvQs7tx7EFWWuIgj18XKU
+        MmEkZZTcR1TKCgpcgjnOhZAREmUEMxrPgYzSc1mgx77goJuZoNMVoGTcTTKn
+        Yd9qbm1yMg2t0hV0c0mxI+HYXYqQMhzdJV2onFe9lfl0Tje1vt5Rq4U7uYxE
+        LCSMhid88OZVDM7PpXs9t6+CA6H7gAUAAA==
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:11 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3ASport%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "161"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:11 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1007"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA61XXY7iRhC+SolIUfJg6G7b2O7MzAo5oI1mV5EGa5Dy1kAH
+        rGn/rLsdlrfcIXfJBfYme5JUA5OFzbTNKiPxBOarqq+++qp88+ZjoeAP2ei8
+        Km8HdEgGb+5uRJ0Dfl/q28HWmJqPRrvdbljIdS52+VM+rJrNCH8f4XOjwd3N
+        h1Y2+7ublTByUzX7QhZLBMQvCrAQZAAmN0oifBIRmLZNVUtRwsRslTT5SsMv
+        5bqqGki3oqgxD73Na41/2tf4n1pspAUopDb48+2AETL2KPVImFHKwzEPo98G
+        MHo5XPKq4RgnlAexIxw+yV4hnI3FPBpkZMx9nzPiCDdLYbIu8kbAQqyeZAPv
+        P/29Vnm56cEeI3xGCA8THrpKSUWjYL7CClZbY6FlUTW5UJBVbVOKQpami7DY
+        VsCCjMachjxIHFEeUvi5KkXbk7Dv+SSjEQ9CzlxQ07cpZFIUsMhl2YMXedTP
+        aMKDgFMXAdN7mJYbqQpRlt+E6XPiO+UYnqv/QysO8vgWXaASWUZ97sddYaLg
+        VcIEqD1O3MOVhK8VxvbWGWZ8Vk3a1jDLS6F61Od7lFh3YNgRVwGzvNEGHrG3
+        pYBZ2pUrsbmiCAmOI5LvYv6teKrE9gTZbSgkecaL3HjvZFVXag1ZI5e50avt
+        /5hDxtzTfuIgzc0e3otGmG3VpXcLm3iMWr2TkPtj1ww9d22+rRoDKaasJcx3
+        eVGgS10qBRA2uEouIQ4t952W0m6We0hVu4S5EWt5bEaV9xsuCzOUexjwkDqw
+        50YqJeCh0lr0egJKJraeQBJLPXVhnqinccxgtZVag7mms/8qEjVOIs6Cns5K
+        hcMJD90qP9IQW4pD4lYlDn6CQiy//474yU/6y3A+VkrJ/VIoddHbLiVFtgwU
+        KLJEOlbdYjgZ3g9/HZ4ZwYV40PKinsoCj44zOuZontRV2WKSHVSjelcS2n1k
+        dyieA+6kkXtcnZMuzo+jRMZ2lEKk3eWCJ6x5jYPkWXV3YSaHHR9bd8FqiUsb
+        80c4wuKxdsXNgOPBeIByc43eomrQq9KDiM/bg92hBH54JzQeKZ///OvLWfFj
+        r4uT4MAMfthFVBqcnSrHq5PP7mHSaoP2eDGcul3iYfqCA4dW62jneGZR0os+
+        T+Fk7/3gkZUbwdmPMO+v/fFF8Ht4wFt6fV3i6IPx4fTFzxWJW81oPPHLVmrI
+        y6/W04tRKLPkW4cPD1dSP/nHKDUuLCXh96YqrgpDcU17LMoYxRic9RP17GdI
+        lhFKQ63EHl81uimLvYNdHs6zmAf9xZymbfp4HT6aAfpmkuEuRC09VzH6z+vQ
+        6PSeZF+b7v4Brtwtk3kNAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:11 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3ATransport%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "165"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:11 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "677"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA5WV327TMBTGX8XKNVn8J0lbq+00kBCICdAaQOLObb3VamIH
+        x1npXoYX4W4vxnHWDQZ1Uu6ixPr5y3e+c870/HtVoltpG2X0LCJnODqfT0Wt
+        ELzXzSzaOFfzJNntdmeVXCuxU1t1ZuxNAt8TOJdE8+m3Vtr9fLoSTt4Yu69k
+        tQQgvKiQR+AIOeVKOYsKK3RTG+uEg+uQ0uizkloLOLCv4XstbqQ/XMnGiaqe
+        RRQTHGMS46zAOaeEZ9nXCCVH0K+U26MLZT0dwT1K90DxJCY0pqQgGcdjztIA
+        9I2wS9Pa5iSlAMUjEFsAkTBOSAD6TtiyqUvh7tDCibVbio32T96SPnwed7IL
+        POF4xMkogL80W1MZp26vxdKqLXpdGqvWzdrY6z76OPZOjwtCOR1xFrL5fXv/
+        w6PQTiqLhF6j0qy2A/UDY9KCYJ6OgR0Af2gcumid8W4MVI7EtItDlnIWMhlw
+        nrS09z9XW9mnj8aYHaKQjcL6PlpIt0WXqlR16wZUgkScQhoKkvI05xgHoFdS
+        rTbNsEhf+zymE8/LCGeTAO+ibZxVAuJkWreRVqMrocqd2J/qKHgQcnThZL3x
+        7euT++KEdujyyrBvB0p5FtIMvVqd1mDeVQZiC5xBd/FsHCA+gNBbDQXTXVuJ
+        8nE09LeAT8LEC04Jp6wfv4hfDkQ19/OAQPJB6wQ86Od9GuRlXaHyAtyEAYBD
+        v/8FeF1SNTycyGOYZ6GQPvLMVpQ+9/3QP9OU8zTUTgfo0wDsQ/qhGlPmOzRl
+        MESeIUn6ewUc9g8/hB41D0P1SLqadgnb6mgAYMJSuAX/bfCxixbOSun+gw/T
+        kDBvOCwIlg/yn0Xj6Xd6L/FNQrstBHMHgndIXfLPck4OW9sv8fkvlSWzXgcI
+        AAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:11 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AVisitor%20attractions%20in%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "177"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:12 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "1535"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        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
+        v9YWAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:12 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AWikiProject%20Vienna&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "162"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:12 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "191"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA2WOQQ6CMBBFr9J0D4WiMZK2LLyAC6OJu4ITrVKKbbFye4eE
+        nds/77/5ovnannzAB+MGScu8oI0SejQE8yFI+ohxrBlLKeUWbkYn8zK583eG
+        d4Yco0q8J/CzEp2OcHd+tmBbFGJgyaIoN5REE3uQ9LAi9QU1R++e0EVyNjAM
+        mmgfTddDQHgekQ1Ti8alaiFEbUdJeVHyrKgyvj/xqq62Nd9dKWFKsL/fbB21
+        bFQ/cZwzqOYAAAA=
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:12 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AVienna%20templates&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "160"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:12 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "438"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA52Uy27bMBBFf2WgvS2OJNsxYTsoCnQTFAlaoQW6oyXGJiI+
+        QlJ19W/d9cc6QpygaJDQNqDVaHgP58G7uv6lO/gpfVDWrDOcsux6sxJOAcVN
+        WGf7GB3P88PhMNWyVeKgHtTU+l1O/3PKy7PN6rGXftisGhHlzvpBS70lQQpo
+        GCWQZRBV7OQ6q6V2HaXxTzfwoQ/RKwHflTQQpAjWBEocHOU5sZPjIS1DFNqt
+        s4Ihm2AxwbJmJS+Rs/mPDPLzGI+9aJMERoQlZwXHIkm467edaiB6YYKzPoIy
+        8I1QRryHQWJMkNVsMRaC1fmYNOOfUoo5Z2WS8fUGvtA42wtaVfJqkdaPQvlG
+        BBnA3sNnQVPZq+7+/T6NH6uRcVzyaplk1NY8/PltAkW99c2etKSHxpq2b6L1
+        6e2ignDGccExvV1PM4Ajx4uT1Stezk5Vp65FCbdOegGt8vKsMuYcTwcN2u2t
+        GS7oVsUR05i7Wwj9NjReuUhWcwFnxtl/T6V64Xw8Ws9zOa0a330TIR4v8EKh
+        S5BPvbnOV3y24OzqiZO/crT8aHWj823+Allwa7M8BQAA
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:13 GMT
+- request: 
+    method: post
+    uri: http://en.wikipedia.org/w/api.php
+    body: 
+      encoding: ASCII-8BIT
+      string: action=query&list=categorymembers&cmtitle=Category%3AVienna%20portal&cmprop=title%7Ctype%7Ctimestamp&cmlimit=100&format=xml&maxlag=5&includexmlnamespace=true
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Riki/v0.0.1
+      Content-Length: 
+      - "157"
+      Content-Type: 
+      - application/x-www-form-urlencoded
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 24 Apr 2012 09:20:13 GMT
+      Server: 
+      - Apache
+      X-Content-Type-Options: 
+      - nosniff
+      Cache-Control: 
+      - private
+      Vary: 
+      - Accept-Encoding,X-Forwarded-Proto
+      Content-Type: 
+      - text/xml; charset=utf-8
+      X-Cache: 
+      - MISS from amssq35.esams.wikimedia.org
+      - MISS from amssq46.esams.wikimedia.org
+      - MISS from sq59.wikimedia.org
+      X-Cache-Lookup: 
+      - MISS from amssq35.esams.wikimedia.org:3128
+      - MISS from amssq46.esams.wikimedia.org:80
+      - MISS from sq59.wikimedia.org:3128
+      Content-Length: 
+      - "288"
+      Connection: 
+      - Keep-Alive
+      Content-Encoding: 
+      - gzip
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA5WTUU/DIBSF/wrhfQXWVh1puweffFvUaOIbdjeVrRSkzNp/
+        72XOJcaYsIQHcrj57uHk3mr9aXryAX7UdqipyDhdN5VymqA+jDV9C8FJxqZp
+        ygxstZr0XmfWdwzfGdYx2lTvB/BzU7UqQGf9bMC8IhAFQyJCcE5J0KGHmm6s
+        D6qXTxqGQaE6OxSd6iBWGBiDMq6mSy74QiwXPH8UpcwLWYoXStiZWJx5z2jH
+        RV8y3jbe7qAN5DL8lczLX/h/DbPb7y9qGFPhN3gS4XdD8DaVey2LVSL3lEqy
+        5ZXMRSL6HnpMZEvcUb0glDI1lAfo0Xtsodtw8MBEehPBE5vE2TlOd3pEP+mz
+        P1PPTusQt6P5Ak49qZtgAwAA
+
+    http_version: 
+  recorded_at: Tue, 24 Apr 2012 09:20:13 GMT
+recorded_with: VCR 2.0.1
