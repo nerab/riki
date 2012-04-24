@@ -29,8 +29,9 @@ module Riki
             title = page['title'] # will already be the normalized and redirected title
 
             # Make sure redirects and normalizations are still current
-            [normalization(query, title), redirection(query, title)].each do |indirection|
+            [redirection(query, title), normalization(query, title)].each do |indirection|
               next unless indirection
+
               if Riki::Base.cache.read(cache_key("page_#{indirection['from']}")).title != indirection['to']
                 Riki.logger.debug "Redirection source #{indirection['from']} is stale. New target is #{indirection['to']}"
                 results.delete(indirection['from'])
@@ -89,9 +90,7 @@ module Riki
 
           # Cache the non-normalized form so that the next query will hit the cache even if asking for the non-normalized version
           # <normalized><n from="ISO_639-2" to="ISO 639-2" /></normalized>
-          normalization = normalization(query, p.title)
-
-          if normalization
+          if normalization = normalization(query, p.title)
             Riki.logger.debug "Also caching page '#{p.title}' under its non-normalized title '#{normalization['from']}'"
             p.normalized_from = normalization['from']
 
@@ -101,10 +100,8 @@ module Riki
 
           # Cache the page under the title of the redirect source
           # <redirects><r from="&quot;Mimia&quot;" to="Mimipiscis" tofragment=""/>
-          redirection = redirection(query, p.title)
-
-          if redirection
-            Riki.logger.debug "Also caching page '#{p.title}' under its redirect source '#{redirection['from']}'"
+          if redirection = redirection(query, p.title)
+            Riki.logger.debug "Also caching page '#{p.title}' under its redirection source '#{redirection['from']}'"
             p.redirected_from = redirection['from']
 
             # TODO We might save some space by caching a flyweight of p here (like an alias)
