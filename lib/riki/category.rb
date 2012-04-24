@@ -1,6 +1,6 @@
 module Riki
   #
-  # Represents a MediaWiki page. Only the latest revision of a page is considered.
+  # Represents a MediaWiki category. Category members could be pages, categories and files.
   #
   class Category < Base
     class << self
@@ -41,6 +41,7 @@ module Riki
     def members
       result = []
 
+      # Grouping by type allows coarse-grained API calls.
       @members.group_by{|cm| cm['type']}.each do |type, members|
         result.concat(class_for(type).find_by_title(members.map{|cm| cm['title']}))
       end
