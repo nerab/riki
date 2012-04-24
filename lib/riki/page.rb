@@ -29,11 +29,7 @@ module Riki
             title = page['title'] # will already be the normalized and redirected title
 
             # Make sure redirects and normalizations are still current
-            indirections = []
-            indirections << normalization(query, title)
-            indirections << redirection(query, title)
-
-            indirections.each do |indirection|
+            [normalization(query, title), redirection(query, title)].each do |indirection|
               next unless indirection
               if Riki::Base.cache.read(cache_key("page_#{indirection['from']}")).title != indirection['to']
                 Riki.logger.debug "Redirection source #{indirection['from']} is stale. New target is #{indirection['to']}"
