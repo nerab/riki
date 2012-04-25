@@ -43,20 +43,10 @@ module Riki
 
       # Grouping by type allows coarse-grained API calls.
       @members.group_by{|cm| cm['type']}.each do |type, members|
-        result.concat(class_for(type).find_by_title(members.map{|cm| cm['title']}))
+        result.concat(TypeRegistry.get(type).find_by_title(members.map{|cm| cm['title']}))
       end
 
       result
-    end
-
-    private
-
-    CLASS_MAP = {
-      'subcat' => Category
-    }
-
-    def class_for(type)
-      CLASS_MAP[type] || Riki.const_get(type.classify)
     end
   end
 end
